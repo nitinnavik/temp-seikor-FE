@@ -57,6 +57,7 @@ import { useRef } from "react";
 
 const CandidateProfileModule = () => {
   const [profileModalShow, setProfileModalShow] = useState(false);
+  const [refresh, setRefresh] = useState(false);
   const [usernameModalShow, setUsernameModalShow] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
   const [smartViewScreenDisplay, setSmartViewScreenDisplay] = useState(false);
@@ -123,7 +124,7 @@ const CandidateProfileModule = () => {
         name?.split(" ")[0]?.charAt(0)?.toUpperCase() +
         name?.split(" ")[1]?.charAt(0)?.toUpperCase();
       setInitials(InitName);
-      console.log(initials)
+      console.log(initials);
       // setShowLoader(false);
     } else {
       let InitName = name?.split(" ")[0]?.charAt(0)?.toUpperCase();
@@ -133,22 +134,24 @@ const CandidateProfileModule = () => {
   };
 
   const getProfilePicture = () => {
-    if (
-      candidateDetails?.basicDetailsResponse?.profilePicDownloadURL !==
-      (undefined || null)
-    ) {
+    if (candidateDetails?.basicDetailsResponse) {
       downloadPicture(
         candidateDetails?.basicDetailsResponse?.profilePicDownloadURL
       );
     } else {
       setProfileSrc(null);
+      setRefresh(!refresh);
     }
   };
 
   useEffect(() => {
     getProfilePicture();
     getInitialsLetter();
-  }, [candidateDetails, candidateDetails?.userRegistrationDetails]);
+  }, [candidateDetails]);
+
+  useEffect(() => {
+    getProfilePicture();
+  }, [refresh]);
 
   const onUsernameSave = () => {
     setShowLoader(true);
@@ -806,7 +809,13 @@ const CandidateProfileModule = () => {
                     // path={
                     //   width > BREAKPOINT_TABLET_VIEW ? "" : EDIT_CANDIDATE_PAGE
                     // }
-                    element={<Navigate to="about-me" replace />}
+                    element={() => {
+                      return width > BREAKPOINT_TABLET_VIEW ? (
+                        <Navigate to="about-me" replace />
+                      ) : (
+                        ""
+                      );
+                    }}
                   />
 
                   <Route

@@ -2,6 +2,7 @@ export const LOGIN_ENDPOINT = "api/signin";
 export const REGISTRATION_ENDPOINT = "/api/signupcandidate";
 export const GEN_OTP_ENDPOINT = "api/otp/genotp";
 export const PROFILE_ABOUTME = "/api/candidate/aboutMe";
+export const UPDATE_ADDITIONAL_DETAILS = "/api/candidate/additionDetails";
 export const COMPANY_DROPDOWN = "/api/master/getCompanyMaster";
 export const CURRENT_ROLE_DROPDOWN = "/api/master/getRoleMaster";
 export const CURRENT_DESIGNATION = "/api/candidate/currentDesignation";

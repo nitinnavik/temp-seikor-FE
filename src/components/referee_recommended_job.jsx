@@ -107,7 +107,6 @@ const RefereeRecommendedJobPage = forwardRef((props, ref) => {
           <div className="row jobs">
             {props.refereeJobList?.map((item, index) => {
               if (item?.isPromoted === true) {
-                console.log(item,"recommended job")
                 return (
                   <div
                     className="col-12 col-sm-12 col-md-12 col-lg-6 mb-4"
@@ -346,7 +345,8 @@ const RefereeRecommendedJobPage = forwardRef((props, ref) => {
                           <Link
                             style={{ height: "40px" }}
                             to={{
-                              pathname: `/job/${item?.jobId}${JOB_DETAILS_PAGE_REFEREE_ROUTE}`,
+                              pathname: `/job/${item?.jobId}`,
+                              search: JOB_DETAILS_PAGE_REFEREE_ROUTE,
                             }}
                             type="button"
                             className="d-flex align-items-center justify-content-center btn btn-dark w-100 fs-12 fw-700"

@@ -24,7 +24,7 @@ export const candidateModel = {
   saveCandidateDetails: thunk(async (actions, payload) => {
     // actions.addIsLoading(true);
     const { data } = await getCandidateDetails(payload);
-    if (data.status === "SUCCESS") {
+    if (data?.status === "SUCCESS") {
       actions.addCandidateDetails(data?.data);
     }
     // actions.addIsLoading(false);

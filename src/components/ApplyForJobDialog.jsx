@@ -89,7 +89,10 @@ const ApplyForJobDialog = (props) => {
 
   useEffect(() => {
     const userId = getLocalStorage(USER_ID);
-    saveCandidateDetails(userId);
+    if (userId) {
+      saveCandidateDetails(userId);
+    }
+    
     if (!token) {
       setIsApplyingWithOutLogin(true);
     }
@@ -132,6 +135,10 @@ const ApplyForJobDialog = (props) => {
                 "success",
                 res?.message ? res?.message : SUCCESSFULLY_APPLIED_JOB
               );
+              if (props?.fetchAllJobs) {
+                props?.fetchAllJobs();
+              }
+              
               if (props?.onJobSaved) {
                 props?.onJobSaved();
               }

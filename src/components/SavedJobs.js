@@ -130,7 +130,7 @@ const SavedJobs = forwardRef((props, ref) => {
           ) : null}
 
           {savedJobs?.length > 0 &&
-            savedJobs?.slice(0,6)?.map((savedJob, index) => {
+            savedJobs?.map((savedJob, index) => {
               return (
                 <div className="col-md-6 col-lg-4 mb-3" key={index}>
                   <JobCard>

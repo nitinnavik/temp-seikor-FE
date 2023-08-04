@@ -134,7 +134,7 @@ const RefferedJob = forwardRef((props, ref) => {
             </div>
           ) : null}
           {refferedJobs?.length > 0 &&
-            refferedJobs?.slice(0,6)?.map((refferJob, index) => {
+            refferedJobs?.map((refferJob, index) => {
               return (
                 <div className="col-md-6 col-lg-4 mb-3" key={index}>
                   <JobCard>

@@ -39,6 +39,7 @@ import {
   WAIT_FOR_TIMER,
 } from "../constants/message";
 import {
+  updateAdditionalDetails,
   userCurrentDetails,
   userMessage,
 } from "../_services/candidate.service";
@@ -125,7 +126,7 @@ const RegistrationVerifyForm = (props) => {
   var phone = props.sentParentToChild?.phone;
 
   const redirectPage = () => {
-    let reqArray = []
+    let reqArray = [];
     if (props?.redirectUrl == "") {
       if (isApplyingWithOutLogin) {
         if (nonLoginSaveForApplying) {
@@ -145,20 +146,66 @@ const RegistrationVerifyForm = (props) => {
             navigate(ALL_JOBS_PAGE_ROUTE);
           }
         } else {
-          let message = userMessage(
-            applyForJobNonLoginUser?.userProfileSnap
-              ?.additionalInfoProfileResponse?.aboutMe ? applyForJobNonLoginUser?.userProfileSnap
-              ?.additionalInfoProfileResponse?.aboutMe : ""
-          )
-          if (
-            applyForJobNonLoginUser?.userProfileSnap
-              ?.additionalInfoProfileResponse?.aboutMe
-          ) {
-            reqArray.push(message);
-          }
+          //   let message = userMessage(
+          //     applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.aboutMe ? applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.aboutMe : ""
+          //   )
+          //   if (
+          //     applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.aboutMe
+          //   ) {
 
+          //     reqArray.push(message);
+          //   }
 
-          let userCurrentDetailsObj = {
+          //   let userCurrentDetailsObj = {
+          // currentDesignation: applyForJobNonLoginUser?.userProfileSnap
+          //   ?.additionalInfoProfileResponse?.currentDesignation
+          //   ? applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.currentDesignation
+          //   : candidateDetails?.additionalInfoProfileResponse
+          //       ?.currentDesignation,
+          // company: applyForJobNonLoginUser?.userProfileSnap
+          //   ?.additionalInfoProfileResponse?.company
+          //   ? applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.company
+          //   : candidateDetails?.additionalInfoProfileResponse?.company,
+          // jobSearchStatus: applyForJobNonLoginUser?.userProfileSnap
+          //   ?.additionalInfoProfileResponse?.jobSearchStatus
+          //   ? applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.jobSearchStatus
+          //   : candidateDetails?.additionalInfoProfileResponse
+          //       ?.jobSearchStatus,
+          //   };
+          //   let userDetails = userCurrentDetails(
+          //     userCurrentDetailsObj?.currentDesignation,
+          //     userCurrentDetailsObj?.company,
+          //     userCurrentDetailsObj?.jobSearchStatus
+          //   );
+          //   if (
+          //     applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.company ||
+          //     applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.currentDesignation ||
+          //     applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.jobSearchStatus
+          //   ) {
+          //     reqArray.push(userDetails);
+          //   }
+
+          // let addLocation = AddLocation(
+          //   applyForJobNonLoginUser?.userProfileSnap
+          //     ?.additionalInfoProfileResponse?.currentLocation ? applyForJobNonLoginUser?.userProfileSnap
+          //     ?.additionalInfoProfileResponse?.currentLocation : null
+          // );
+          //   if (
+          //     applyForJobNonLoginUser?.userProfileSnap
+          //       ?.additionalInfoProfileResponse?.currentLocation
+          //   ) {
+          //     reqArray.push(addLocation);
+          //   }
+          let additionalDetails = updateAdditionalDetails({
             currentDesignation: applyForJobNonLoginUser?.userProfileSnap
               ?.additionalInfoProfileResponse?.currentDesignation
               ? applyForJobNonLoginUser?.userProfileSnap
@@ -176,73 +223,74 @@ const RegistrationVerifyForm = (props) => {
                   ?.additionalInfoProfileResponse?.jobSearchStatus
               : candidateDetails?.additionalInfoProfileResponse
                   ?.jobSearchStatus,
-          };
-          let userDetails = userCurrentDetails(
-            userCurrentDetailsObj?.currentDesignation,
-            userCurrentDetailsObj?.company,
-            userCurrentDetailsObj?.jobSearchStatus
-          );
+            aboutMe: applyForJobNonLoginUser?.userProfileSnap
+              ?.additionalInfoProfileResponse?.aboutMe
+              ? applyForJobNonLoginUser?.userProfileSnap
+                  ?.additionalInfoProfileResponse?.aboutMe
+              : "",
+            currentLocation: applyForJobNonLoginUser?.userProfileSnap
+              ?.additionalInfoProfileResponse?.currentLocation
+              ? applyForJobNonLoginUser?.userProfileSnap
+                  ?.additionalInfoProfileResponse?.currentLocation
+              : null,
+          });
           if (
+            applyForJobNonLoginUser?.userProfileSnap
+              ?.additionalInfoProfileResponse?.aboutMe ||
             applyForJobNonLoginUser?.userProfileSnap
               ?.additionalInfoProfileResponse?.company ||
             applyForJobNonLoginUser?.userProfileSnap
               ?.additionalInfoProfileResponse?.currentDesignation ||
             applyForJobNonLoginUser?.userProfileSnap
-              ?.additionalInfoProfileResponse?.jobSearchStatus
-          ) {
-            reqArray.push(userDetails);
-          }
-          
-        let addLocation = AddLocation(
-          applyForJobNonLoginUser?.userProfileSnap
-            ?.additionalInfoProfileResponse?.currentLocation ? applyForJobNonLoginUser?.userProfileSnap
-            ?.additionalInfoProfileResponse?.currentLocation : null
-        );
-          if (
+              ?.additionalInfoProfileResponse?.jobSearchStatus ||
             applyForJobNonLoginUser?.userProfileSnap
               ?.additionalInfoProfileResponse?.currentLocation
           ) {
-            reqArray.push(addLocation);
+            reqArray.push(additionalDetails);
           }
 
           let temp = [];
-          temp = applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses?
-            applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses?.map(
-              (finalObj, index) => {
-                if (finalObj?.linkUrl.length > 0) {
-                  return {
-                    id: finalObj.id,
-                    linkTitle: finalObj.linkTitle,
-                    linkUrl: finalObj.linkUrl,
-                  };
-                } else {
-                  return {
-                    id: finalObj.id,
-                    linkTitle: finalObj.linkTitle,
-                    linkUrl: finalObj.linkUrl,
-                  };
+          temp = applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses
+            ? applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses?.map(
+                (finalObj, index) => {
+                  if (finalObj?.linkUrl.length > 0) {
+                    return {
+                      id: finalObj.id,
+                      linkTitle: finalObj.linkTitle,
+                      linkUrl: finalObj.linkUrl,
+                    };
+                  } else {
+                    return {
+                      id: finalObj.id,
+                      linkTitle: finalObj.linkTitle,
+                      linkUrl: finalObj.linkUrl,
+                    };
+                  }
                 }
-              }
-            ):[];
-          
-            let addSocialMediaData = AddSocialMedia(temp);
+              )
+            : [];
+
+          let addSocialMediaData = AddSocialMedia(temp);
           if (applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses) {
             reqArray.push(addSocialMediaData);
           }
 
           const request = {
-            keySkills:
-              applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                ?.keySkills ?applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                ?.keySkills : null,
-            industries:
-              applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                ?.industries ? applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                ?.industries : null,
-            functions:
-              applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                ?.functions ?applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                ?.functions : null,
+            keySkills: applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
+              ?.keySkills
+              ? applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
+                  ?.keySkills
+              : null,
+            industries: applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
+              ?.industries
+              ? applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
+                  ?.industries
+              : null,
+            functions: applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
+              ?.functions
+              ? applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
+                  ?.functions
+              : null,
           };
 
           let addCandidateSkillsData = addCandidateSkills(request);
@@ -265,10 +313,12 @@ const RegistrationVerifyForm = (props) => {
                   ?.length;
                 i++
               ) {
-                reqArray.push(addCandidateWorkExperience(
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.workExperienceResponse[i]
-                ));
+                reqArray.push(
+                  addCandidateWorkExperience(
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.workExperienceResponse[i]
+                  )
+                );
               }
             }
           }
@@ -287,26 +337,28 @@ const RegistrationVerifyForm = (props) => {
                   ?.educationalExperienceResponse?.length;
                 i++
               ) {
-                reqArray.push(addEducationDetails(
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.id,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.qualification,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.degreeName,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.specialization,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.institute,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.courseStartDate,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.courseEndDate,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.outcome,
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse[i]?.isCompleted
-                ));
+                reqArray.push(
+                  addEducationDetails(
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.id,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.qualification,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.degreeName,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.specialization,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.institute,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.courseStartDate,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.courseEndDate,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.outcome,
+                    applyForJobNonLoginUser?.userProfileSnap
+                      ?.educationalExperienceResponse[i]?.isCompleted
+                  )
+                );
               }
             }
           }
@@ -316,51 +368,58 @@ const RegistrationVerifyForm = (props) => {
                 ?.userResumeResponse[1] === undefined &&
               applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse
             ) {
-              reqArray.push(updateResume([
-                applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse[0],
-              ]));
+              reqArray.push(
+                updateResume([
+                  applyForJobNonLoginUser?.userProfileSnap
+                    ?.userResumeResponse[0],
+                ])
+              );
             } else if (
               applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse
             ) {
-              reqArray.push(updateResume([
-                applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse[0],
-              ]));
-              reqArray.push(updateResume([
-                applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse[1],
-              ]));
+              reqArray.push(
+                updateResume([
+                  applyForJobNonLoginUser?.userProfileSnap
+                    ?.userResumeResponse[0],
+                ])
+              );
+              reqArray.push(
+                updateResume([
+                  applyForJobNonLoginUser?.userProfileSnap
+                    ?.userResumeResponse[1],
+                ])
+              );
             }
           }
-          reqArray.push(updateSavedAndPinJob(
-            nonLoginSaveForApplying?.jobId,
-            nonLoginSaveForApplying?.isSave,
-            nonLoginSaveForApplying?.isRefer,
-            nonLoginSaveForApplying?.boolean
-          ));
-          
+          reqArray.push(
+            updateSavedAndPinJob(
+              nonLoginSaveForApplying?.jobId,
+              nonLoginSaveForApplying?.isSave,
+              nonLoginSaveForApplying?.isRefer,
+              nonLoginSaveForApplying?.boolean
+            )
+          );
+
           if (isNonLoginUserApplyDetailJob) {
             navigate(`/${JOB_DETAILS_PAGE_ROUTE}/${currentJobDetails?.jobId}`);
           } else {
             navigate(ALL_JOBS_PAGE_ROUTE);
           }
         }
-
       } else {
         navigate("/candidate/");
       }
 
-       
-      Promise.all(reqArray).then(res => {
+      Promise.all(reqArray).then((res) => {
         const userId = getLocalStorage(USER_ID);
-        saveCandidateDetails(userId);
-        console.log(res,"promise all response")
-    })
-      // console.log(a, 'promise all response')
-      
+        if (res) {
+          saveCandidateDetails(userId);
+        }
+      });
     } else {
       const params = dataParams?.get("redirectTo");
       window.location.href = params;
     }
- 
   };
 
   useEffect(() => {

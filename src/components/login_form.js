@@ -31,6 +31,7 @@ import { checkPhoneNumberValid } from "../utils/utils";
 import {
   deleteCandidateResume,
   mobileValidation,
+  updateAdditionalDetails,
   userCurrentDetails,
   userMessage,
 } from "../_services/candidate.service";
@@ -408,220 +409,258 @@ const LoginForm = (props) => {
             // style={{ border: "1px solid black" }}
             className="btn btn-cancel"
             onClick={() => {
-              if (!nonLoginSaveForApplying) {
-                if (
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.additionalInfoProfileResponse?.aboutMe
-                ) {
-                  userMessage(
-                    applyForJobNonLoginUser?.userProfileSnap
-                      ?.additionalInfoProfileResponse?.aboutMe
-                  );
-                }
-                if (
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.additionalInfoProfileResponse?.company ||
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.additionalInfoProfileResponse?.currentDesignation ||
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.additionalInfoProfileResponse?.jobSearchStatus
-                ) {
-                  let userCurrentDetailsObj = {
-                    currentDesignation: applyForJobNonLoginUser?.userProfileSnap
-                      ?.additionalInfoProfileResponse?.currentDesignation
-                      ? applyForJobNonLoginUser?.userProfileSnap
-                          ?.additionalInfoProfileResponse?.currentDesignation
-                      : candidateDetails?.additionalInfoProfileResponse
-                          ?.currentDesignation,
-                    company: applyForJobNonLoginUser?.userProfileSnap
-                      ?.additionalInfoProfileResponse?.company
-                      ? applyForJobNonLoginUser?.userProfileSnap
-                          ?.additionalInfoProfileResponse?.company
-                      : candidateDetails?.additionalInfoProfileResponse
-                          ?.company,
-                    jobSearchStatus: applyForJobNonLoginUser?.userProfileSnap
-                      ?.additionalInfoProfileResponse?.jobSearchStatus
-                      ? applyForJobNonLoginUser?.userProfileSnap
-                          ?.additionalInfoProfileResponse?.jobSearchStatus
-                      : candidateDetails?.additionalInfoProfileResponse
-                          ?.jobSearchStatus,
-                  };
-                  userCurrentDetails(
-                    userCurrentDetailsObj?.currentDesignation,
-                    userCurrentDetailsObj?.company,
-                    userCurrentDetailsObj?.jobSearchStatus
-                  );
-                }
-                if (
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.additionalInfoProfileResponse?.currentLocation
-                ) {
-                  AddLocation(
-                    applyForJobNonLoginUser?.userProfileSnap
-                      ?.additionalInfoProfileResponse?.currentLocation
-                  );
-                }
-                let temp = [];
-                temp =
-                  applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses?.map(
-                    (finalObj, index) => {
-                      if (finalObj?.linkUrl.length > 0) {
-                        return {
-                          id: finalObj.id,
-                          linkTitle: finalObj.linkTitle,
-                          linkUrl: finalObj.linkUrl,
-                        };
-                      } else {
-                        return {
-                          id: finalObj.id,
-                          linkTitle: finalObj.linkTitle,
-                          linkUrl: finalObj.linkUrl,
-                        };
-                      }
-                    }
-                  );
-                if (
-                  applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses
-                ) {
-                  AddSocialMedia(temp);
-                }
-
-                const request = {
-                  keySkills:
-                    applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                      ?.keySkills,
-                  industries:
-                    applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                      ?.industries,
-                  functions:
-                    applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
-                      ?.functions,
-                };
-
-                if (applyForJobNonLoginUser?.userProfileSnap?.skillsResponse) {
-                  addCandidateSkills(request);
-                }
-
-                if (
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.workExperienceResponse
-                ) {
-                  if (
-                    applyForJobNonLoginUser?.userProfileSnap
-                      ?.workExperienceResponse?.length > 0
-                  ) {
-                    for (
-                      let i = 0;
-                      i <
-                      applyForJobNonLoginUser?.userProfileSnap
-                        ?.workExperienceResponse?.length;
-                      i++
-                    ) {
-                      addCandidateWorkExperience(
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.workExperienceResponse[i]
+                let reqArray = [];
+                if (isApplyingWithOutLogin) {
+                  if (nonLoginSaveForApplying) {
+                    updateSavedAndPinJob(
+                      nonLoginSaveForApplying?.jobId,
+                      nonLoginSaveForApplying?.isSave,
+                      nonLoginSaveForApplying?.isRefer,
+                      nonLoginSaveForApplying?.boolean
+                    );
+                    navigate(
+                      `/${JOB_DETAILS_PAGE_ROUTE}/${nonLoginSaveForApplying?.jobId}`
+                    );
+                  } else if (isReferringWithOutLogin && nonLoginReferData) {
+                    if (isReferringFromDetailsWithOutLogin) {
+                      navigate(
+                        `/${JOB_DETAILS_PAGE_ROUTE}/${nonLoginReferData?.jobId}`
                       );
+                    } else {
+                      navigate(ALL_JOBS_PAGE_ROUTE);
                     }
-                  }
-                }
-                if (
-                  applyForJobNonLoginUser?.userProfileSnap
-                    ?.educationalExperienceResponse
-                ) {
-                  if (
-                    applyForJobNonLoginUser?.userProfileSnap
-                      ?.educationalExperienceResponse?.length > 0
-                  ) {
-                    for (
-                      let i = 0;
-                      i <
+                  } else {
+                    let additionalDetails = updateAdditionalDetails({
+                      currentDesignation: applyForJobNonLoginUser
+                        ?.userProfileSnap?.additionalInfoProfileResponse
+                        ?.currentDesignation
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.additionalInfoProfileResponse?.currentDesignation
+                        : candidateDetails?.additionalInfoProfileResponse
+                            ?.currentDesignation,
+                      company: applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.company
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.additionalInfoProfileResponse?.company
+                        : candidateDetails?.additionalInfoProfileResponse
+                            ?.company,
+                      jobSearchStatus: applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.jobSearchStatus
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.additionalInfoProfileResponse?.jobSearchStatus
+                        : candidateDetails?.additionalInfoProfileResponse
+                            ?.jobSearchStatus,
+                      aboutMe: applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.aboutMe
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.additionalInfoProfileResponse?.aboutMe
+                        : "",
+                      currentLocation: applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.currentLocation
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.additionalInfoProfileResponse?.currentLocation
+                        : null,
+                    });
+                    if (
                       applyForJobNonLoginUser?.userProfileSnap
-                        ?.educationalExperienceResponse?.length;
-                      i++
+                        ?.additionalInfoProfileResponse?.aboutMe ||
+                      applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.company ||
+                      applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.currentDesignation ||
+                      applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.jobSearchStatus ||
+                      applyForJobNonLoginUser?.userProfileSnap
+                        ?.additionalInfoProfileResponse?.currentLocation
                     ) {
-                      addEducationDetails(
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.id,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.qualification,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.degreeName,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.specialization,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.institute,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.courseStartDate,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.courseEndDate,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.outcome,
-                        applyForJobNonLoginUser?.userProfileSnap
-                          ?.educationalExperienceResponse[i]?.isCompleted
-                      );
+                      reqArray.push(additionalDetails);
                     }
-                  }
-                }
-                if (candidateDetails?.userResumeResponse?.length > 0) {
-                  for (
-                    let i = 0;
-                    i <
-                    applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse
-                      ?.length;
-                    i++
-                  ) {
-                    for (
-                      let j = 0;
-                      j < candidateDetails?.userResumeResponse?.length;
-                      j++
+
+                    let temp = [];
+                    temp = applyForJobNonLoginUser?.userProfileSnap
+                      ?.socialLinksResponses
+                      ? applyForJobNonLoginUser?.userProfileSnap?.socialLinksResponses?.map(
+                          (finalObj, index) => {
+                            if (finalObj?.linkUrl.length > 0) {
+                              return {
+                                id: finalObj.id,
+                                linkTitle: finalObj.linkTitle,
+                                linkUrl: finalObj.linkUrl,
+                              };
+                            } else {
+                              return {
+                                id: finalObj.id,
+                                linkTitle: finalObj.linkTitle,
+                                linkUrl: finalObj.linkUrl,
+                              };
+                            }
+                          }
+                        )
+                      : [];
+
+                    let addSocialMediaData = AddSocialMedia(temp);
+                    if (
+                      applyForJobNonLoginUser?.userProfileSnap
+                        ?.socialLinksResponses
+                    ) {
+                      reqArray.push(addSocialMediaData);
+                    }
+
+                    const request = {
+                      keySkills: applyForJobNonLoginUser?.userProfileSnap
+                        ?.skillsResponse?.keySkills
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.skillsResponse?.keySkills
+                        : null,
+                      industries: applyForJobNonLoginUser?.userProfileSnap
+                        ?.skillsResponse?.industries
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.skillsResponse?.industries
+                        : null,
+                      functions: applyForJobNonLoginUser?.userProfileSnap
+                        ?.skillsResponse?.functions
+                        ? applyForJobNonLoginUser?.userProfileSnap
+                            ?.skillsResponse?.functions
+                        : null,
+                    };
+                    if (
+                      applyForJobNonLoginUser?.userProfileSnap
+                        ?.userResumeResponse
                     ) {
                       if (
                         applyForJobNonLoginUser?.userProfileSnap
-                          ?.userResumeResponse[i]?.fileOrder ===
-                        candidateDetails?.userResumeResponse[j]?.fileOrder
+                          ?.userResumeResponse[1] === undefined &&
+                        applyForJobNonLoginUser?.userProfileSnap
+                          ?.userResumeResponse
                       ) {
-                        deleteCandidateResume(
-                          candidateDetails?.userResumeResponse[j]?.fileId
+                        reqArray.push(
+                          updateResume([
+                            applyForJobNonLoginUser?.userProfileSnap
+                              ?.userResumeResponse[0],
+                          ])
+                        );
+                      } else if (
+                        applyForJobNonLoginUser?.userProfileSnap
+                          ?.userResumeResponse
+                      ) {
+                        reqArray.push(
+                          updateResume([
+                            applyForJobNonLoginUser?.userProfileSnap
+                              ?.userResumeResponse[0],
+                          ])
+                        );
+                        reqArray.push(
+                          updateResume([
+                            applyForJobNonLoginUser?.userProfileSnap
+                              ?.userResumeResponse[1],
+                          ])
                         );
                       }
                     }
-                  }
-                }
+                    let addCandidateSkillsData = addCandidateSkills(request);
+                    if (
+                      applyForJobNonLoginUser?.userProfileSnap?.skillsResponse
+                    ) {
+                      reqArray.push(addCandidateSkillsData);
+                    }
 
-                if (
-                  applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse
-                ) {
-                  if (
-                    applyForJobNonLoginUser?.userProfileSnap
-                      ?.userResumeResponse[1] === undefined &&
-                    applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse
-                  ) {
-                    updateResume([
+                    // let addCandidateWorkExperienceData = addCandidateSkills(request);
+                    if (
                       applyForJobNonLoginUser?.userProfileSnap
-                        ?.userResumeResponse[0],
-                    ]);
-                  } else if (
-                    applyForJobNonLoginUser?.userProfileSnap?.userResumeResponse
-                  ) {
-                    updateResume([
+                        ?.workExperienceResponse
+                    ) {
+                      if (
+                        applyForJobNonLoginUser?.userProfileSnap
+                          ?.workExperienceResponse?.length > 0
+                      ) {
+                        for (
+                          let i = 0;
+                          i <
+                          applyForJobNonLoginUser?.userProfileSnap
+                            ?.workExperienceResponse?.length;
+                          i++
+                        ) {
+                          reqArray.push(
+                            addCandidateWorkExperience(
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.workExperienceResponse[i]
+                            )
+                          );
+                        }
+                      }
+                    }
+                    if (
                       applyForJobNonLoginUser?.userProfileSnap
-                        ?.userResumeResponse[0],
-                    ]);
-                    updateResume([
-                      applyForJobNonLoginUser?.userProfileSnap
-                        ?.userResumeResponse[1],
-                    ]);
-                  }
-                }
+                        ?.educationalExperienceResponse
+                    ) {
+                      if (
+                        applyForJobNonLoginUser?.userProfileSnap
+                          ?.educationalExperienceResponse?.length > 0
+                      ) {
+                        for (
+                          let i = 0;
+                          i <
+                          applyForJobNonLoginUser?.userProfileSnap
+                            ?.educationalExperienceResponse?.length;
+                          i++
+                        ) {
+                          reqArray.push(
+                            addEducationDetails(
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]?.id,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]
+                                ?.qualification,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]?.degreeName,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]
+                                ?.specialization,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]?.institute,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]
+                                ?.courseStartDate,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]
+                                ?.courseEndDate,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]?.outcome,
+                              applyForJobNonLoginUser?.userProfileSnap
+                                ?.educationalExperienceResponse[i]?.isCompleted
+                            )
+                          );
+                        }
+                      }
+                    }
 
-                if (isNonLoginUserApplyDetailJob) {
-                  navigate(
-                    `/${JOB_DETAILS_PAGE_ROUTE}/${currentJobDetails?.jobId}`
-                  );
+                    reqArray.push(
+                      updateSavedAndPinJob(
+                        nonLoginSaveForApplying?.jobId,
+                        nonLoginSaveForApplying?.isSave,
+                        nonLoginSaveForApplying?.isRefer,
+                        nonLoginSaveForApplying?.boolean
+                      )
+                    );
+
+                    if (isNonLoginUserApplyDetailJob) {
+                      navigate(
+                        `/${JOB_DETAILS_PAGE_ROUTE}/${currentJobDetails?.jobId}`
+                      );
+                    } else {
+                      navigate(ALL_JOBS_PAGE_ROUTE);
+                    }
+                  }
                 } else {
-                  navigate(ALL_JOBS_PAGE_ROUTE);
+                  navigate("/candidate/");
                 }
-              }
+
+                Promise.all(reqArray).then((res) => {
+                  const userId = getLocalStorage(USER_ID);
+                  if (res) {
+                    saveCandidateDetails(userId);
+                  }
+                });
               setShowUpdateConfirmDialog(false);
             }}
           >

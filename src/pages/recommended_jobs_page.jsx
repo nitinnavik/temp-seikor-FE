@@ -229,7 +229,6 @@ const RecommendedJobsPage = () => {
         if (!isEmpty(res.data)) {
           // let t = [...jobList].concat(res?.data);
           setDataCount(res?.totalCount);
-          // console.log(t);
           let data;
           if (infiniteScroll)
             data = filterfeaturedJobs([...jobList, ...res?.data]);
@@ -595,9 +594,11 @@ const RecommendedJobsPage = () => {
   return (
     <div className="w-100">
       {/* // {showLoader && <Loader />} */}
-      {token 
-       ? <Header candidateDetails={candidateDetails} />
-    :  <StaticHeader candidateDetails={candidateDetails} /> }
+      {token ? (
+        <Header candidateDetails={candidateDetails} />
+      ) : (
+        <StaticHeader candidateDetails={candidateDetails} />
+      )}
 
       <React.Fragment>
         {token ||
@@ -884,7 +885,7 @@ const RecommendedJobsPage = () => {
                       ) : null}
                       {jobList && jobList.length > 0 && (
                         <div className="row jobs">
-                            {jobList.map((item, index) => {
+                          {jobList.map((item, index) => {
                             if (item?.isPromoted === true) {
                               return (
                                 <div
@@ -935,12 +936,6 @@ const RecommendedJobsPage = () => {
                                           name={item?.companyName}
                                           initialsContainerClass="initialsStyle2-xl"
                                         />
-
-                                        {/* <img
-                                  src={`data:image/jpeg;base64 , ${item?.companyLogo}`}
-                                  alt=""
-                                  width="50px"
-                                /> */}
                                       </div>
                                     </div>
                                     <div className="job-content">

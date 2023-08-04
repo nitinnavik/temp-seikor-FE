@@ -18,18 +18,30 @@ import {
 } from "../../constants/page-routes";
 import Notifications from "../notifications_dropdown";
 import NotificationsDropdown from "../notifications_dropdown";
-import { useStoreState } from "easy-peasy";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import ProfileImage from "./../profile_image";
 import { downloadFile, getNotifications } from "../../_services/view.service";
 import { isEmpty } from "../../utils/form_validators";
 import toaster from "../../utils/toaster";
 import { NOTIFICATION_REFRESH_INTERVAL_IN_MINUTES } from "../../constants/config";
 import { NOTIFICATIONS_UPDATE_MESSAGE } from "../../constants/message";
-import { getSessionStorage, setSessionStorage } from "../../utils/storage";
-import { PREV_NOTIFICATION_COUNT } from "../../constants/keys";
+import {
+  getLocalStorage,
+  getSessionStorage,
+  setSessionStorage,
+} from "../../utils/storage";
+import { PREV_NOTIFICATION_COUNT, TOKEN, USER_ID } from "../../constants/keys";
 import RefereeProfileEditDialog from "../referrals-preferences-edit/referrals-preferences-edit-dialog";
 
-const Header = ({ candidateDetails }) => {
+const Header = () => {
+  const token = getLocalStorage(TOKEN);
+  const candidateDetails = useStoreState(
+    (state) => state.candidate.candidateDetails
+  );
+  const saveCandidateDetails = useStoreActions(
+    (actions) => actions.candidate.saveCandidateDetails
+  );
+  const [refresh, setRefresh] = useState(false);
   const BREAKPOINT_COLLAPSING_MENU = 1000;
   const BREAKPOINT_SHOWING_MOBILE_LOGO = 600;
   const { height, width } = useWindowDimensions();
@@ -104,17 +116,21 @@ const Header = ({ candidateDetails }) => {
   }, []);
 
   useEffect(() => {
-    if (candidateDetails?.basicDetailsResponse) {
-      downloadPicture(
-        candidateDetails?.basicDetailsResponse?.profilePicDownloadURL
-      );
-    }
     let candidateName = candidateDetails?.userRegistrationDetails?.name;
     let candidateInitials =
       candidateName?.split(" ")[0]?.charAt(0)?.toUpperCase() +
       candidateName?.split(" ")[1]?.charAt(0)?.toUpperCase();
     setUserInitials(candidateInitials);
   }, [candidateDetails]);
+  useEffect(() => {
+    if (token && candidateDetails?.basicDetailsResponse) {
+      downloadPicture(
+        candidateDetails?.basicDetailsResponse?.profilePicDownloadURL
+      );
+    } else {
+      setRefresh(!refresh);
+    }
+  }, [refresh]);
 
   return (
     <nav className="navbar navbar-expand-lg header-container p-0">

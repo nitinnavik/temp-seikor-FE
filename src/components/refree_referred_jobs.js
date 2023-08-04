@@ -116,7 +116,7 @@ const RefreeReferredJobs = forwardRef((props, ref) => {
           ) : null}
 
           {refreeReferrededJobs?.length > 0 &&
-            refreeReferrededJobs.slice(0,6)?.map((referredJob, index) => {
+            refreeReferrededJobs.slice(0, 6)?.map((referredJob, index) => {
               return (
                 <div className="col-md-6 col-lg-4 mb-3" key={index}>
                   <JobCard>
@@ -216,7 +216,8 @@ const RefreeReferredJobs = forwardRef((props, ref) => {
                         <div className="link">
                           <Link
                             to={{
-                              pathname: `/job/${referredJob?.jobId}${JOB_DETAILS_PAGE_REFEREE_ROUTE}`,
+                              pathname: `/job/${referredJob?.jobId}`,
+                              search: JOB_DETAILS_PAGE_REFEREE_ROUTE,
                             }}
                           >
                             See Details

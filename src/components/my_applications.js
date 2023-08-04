@@ -117,7 +117,7 @@ const ApplicationsData = forwardRef((props, ref) => {
             </div>
           ) : null}
           {appliedJobs?.length > 0 &&
-            appliedJobs?.slice(0,6)?.map((appliedJob, index) => {
+            appliedJobs?.map((appliedJob, index) => {
               return (
                 <div className="col-md-6 col-lg-4 mb-3" key={index}>
                   <JobCard>

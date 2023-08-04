@@ -70,6 +70,7 @@ export const WRONG_CREDENTIALS = "Wrong Credentials";
 export const SOMETHING_WENT_WRONG = "Something Went Wrong";
 export const STATUS_SUCCESS = "SUCCESS";
 export const APPLIED = "APPLIED";
+export const JOINED = "JOINED";
 
 export const APPLY_STATUS = {
   APPLIED: "APPLIED",

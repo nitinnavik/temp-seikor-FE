@@ -143,7 +143,7 @@ const RefreeSavedJobs = forwardRef((props, ref) => {
           ) : null}
 
           {refereeSavedJobs?.length > 0 &&
-            refereeSavedJobs?.slice(0,6)?.map((savedJob, index) => {
+            refereeSavedJobs?.map((savedJob, index) => {
               return (
                 <div className="col-md-6 col-lg-4 mb-3" key={index}>
                   {console.log(savedJob, "refer")}

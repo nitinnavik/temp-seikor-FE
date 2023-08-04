@@ -44,6 +44,7 @@ import { REFEREE_ID_SEARCH_PARAMS } from "../constants/page-routes";
 import { downloadFile } from "../_services/view.service";
 import { getLocalStorage } from "../utils/storage";
 import { useStoreActions, useStoreState } from "easy-peasy";
+import StaticHeader from "../components/common/staticHeader";
 
 const JobDetailsPage = (props) => {
   let { id } = useParams();
@@ -317,6 +318,10 @@ const JobDetailsPage = (props) => {
     }
   }, []);
 
+  const candidateDetails = useStoreState(
+    (state) => state.candidate.candidateDetails
+  );
+
   return (
     <>
       {showLoader && <Loader />}
@@ -325,6 +330,12 @@ const JobDetailsPage = (props) => {
         <NotFoundPage />
       ) : (
         <div className={`${linkInvalid?.class} w-100 h-100`}>
+          {token ? (
+            // <Header candidateDetails={candidateDetails} />
+            ""
+          ) : (
+            <StaticHeader candidateDetails={candidateDetails} />
+          )}
           <div
             className={`d-flex justify-content-between p-3 pb-3 w-100 header-navigations ${
               scrollOffset > 200 ? "trasparent-white" : ""
@@ -923,22 +934,22 @@ const JobDetailsPage = (props) => {
             //   }}
             // />
             <ApplyForJobDialog
-                show={show}
-                setShow={setShow}
-                id={id}
-                refereeId={refereeId}
-                getJobDetails={() => {
-                  getJobDetails();
-                }}
-                jobDetails={jobDetails}
-                backBtnClicked={backBtnClicked}
-                setBackBtnClicked={setBackBtnClicked}
-                saveToProfile={saveToProfile}
-                setSaveToProfile={setSaveToProfile}
-                saveToProfileCheck={saveToProfileCheck}
-                setSaveToProfileCheck={setSaveToProfileCheck}
-                setIsMandatory={setIsMandatory} 
-               />
+              show={show}
+              setShow={setShow}
+              id={id}
+              refereeId={refereeId}
+              getJobDetails={() => {
+                getJobDetails();
+              }}
+              jobDetails={jobDetails}
+              backBtnClicked={backBtnClicked}
+              setBackBtnClicked={setBackBtnClicked}
+              saveToProfile={saveToProfile}
+              setSaveToProfile={setSaveToProfile}
+              saveToProfileCheck={saveToProfileCheck}
+              setSaveToProfileCheck={setSaveToProfileCheck}
+              setIsMandatory={setIsMandatory}
+            />
           }
           {/* <Modal
         fullscreen="lg-down"

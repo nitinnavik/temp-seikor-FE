@@ -12,6 +12,7 @@ import {
   CHANGE_PASSWORD,
   DELETE_RESUME,
   GET_COUNTRY_MASTER_ENDPOINT,
+  UPDATE_ADDITIONAL_DETAILS,
 } from "../constants/api-endpoints";
 import { EMAIL_EXIST, MOBILE_EXIST } from "../constants/message";
 import api from "./api";
@@ -30,6 +31,13 @@ const registerCandiate = (name, email, mobile, password, whatsappAlert) => {
     .then((response) => {
       return response;
     });
+};
+
+export const updateAdditionalDetails = (data) => {
+  return api.post(UPDATE_ADDITIONAL_DETAILS, data).then((response) => {
+    console.log("response", response);
+    return response;
+  });
 };
 
 const userMessage = (aboutMe) => {

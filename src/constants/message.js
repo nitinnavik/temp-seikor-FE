@@ -4,13 +4,13 @@ export const REFERRED_JOB_EMPTY_MESSAGE =
 export const SAVED_JOB_EMPTY_MESSAGE = "You’ve not saved any jobs";
 export const REFEREE_REFERRAL_EMPTY_MESSAGE = "You have not made any referrals";
 export const REFEREE_RECOMMENDED_EMPTY_MESSAGE =
-  "Add your referral preferences to see recommendations";
+  "Oops, we don't have any jobs that match your preferences. Would you like to try changing them?";
 export const REFEREE_SAVED_JOB_EMPTY_MESSAGE = "You’ve not saved any jobs";
 export const REECOMMENDED_JOB_EMPTY_MESSAGE =
-  "Add preferences to see recommended jobs";
+  "Oops, we don't have any jobs that match your preferences. Would you like to try changing them?";
 export const APPLIED_JOB_EMPTY_MESSAGE = "You’ve not made any applications";
 export const REFEREE_REFERRED_JOB_EMPTY_MESSAGE =
-  " Add your referral preferences to see recommendations ";
+  "Oops, we don't have any jobs that match your preferences. Would you like to try changing them?";
 export const INVALID_IMAGE_TYPE = "Invalid file type!";
 export const IMAGE_SIZE_EXCEEDING = "Image size cannot exceed 2MB";
 export const RESUME_SIZE_EXCEEDING = "Resume size cannot exceed 5MB";

@@ -15,7 +15,7 @@ export const JOB_SEARCH_PREFERENCES_PAGE_ROUTE =
 export const REFEREE_PROFILE_HASH = "/candidate#referee";
 export const JOB_DETAILS_PAGE_ROUTE = "job";
 export const REFEREE_ID_SEARCH_PARAMS = "refereeId";
-export const JOB_DETAILS_PAGE_REFEREE_ROUTE = "?source=referring";
+export const JOB_DETAILS_PAGE_REFEREE_ROUTE = "source=referring";
 export const VIEW_REFERRAL = "view-referral";
 export const VIEW_FEEDBACK_FORM = "application-detailed-view";
 export const EDIT_CANDIDATE_PAGE = "/candidate/profile";

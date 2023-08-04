@@ -359,9 +359,11 @@ const AllJobsPage = () => {
   return (
     <div className="w-100">
       {showLoader && <Loader />}
-      {token 
-       ? <Header candidateDetails={candidateDetails} />
-    :  <StaticHeader candidateDetails={candidateDetails} /> }
+      {token ? (
+        <Header candidateDetails={candidateDetails} />
+      ) : (
+        <StaticHeader candidateDetails={candidateDetails} />
+      )}
 
       <section className="page-header jobs-gradient-bg">
         <div className="container ">
@@ -854,6 +856,7 @@ const AllJobsPage = () => {
             id={currentJobDetails?.id}
             jobDetails={currentJobDetails}
             refereeId={null}
+            fetchAllJobs={() => fetchAllJobs(allJobFilterData)}
           />
         )}
     </div>
