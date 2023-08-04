@@ -1,0 +1,43 @@
+.feedback-background {
+  background: #f4f7fb;
+}
+
+.star-yellow-fill {
+  color: #ffd027;
+}
+.feedback-btn-padding {
+  padding: 12px 70px;
+}
+.retract-btn-padding {
+  padding: 10px 50px 10px 16px;
+}
+
+.background-gray {
+  background: #1c1c1c;
+  border-radius: 8px;
+}
+
+.sortbtn-background {
+  background: #f4f7fb;
+  padding: 2px 5px;
+}
+.notification-sort-dropdown {
+  border: 1px solid #3e3e3e;
+  box-shadow: 0px 4px 10px -3px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
+}
+.notification-dropdown {
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+}
+.feedback-large-font {
+  @include media-breakpoint-down(sm) {
+    font-size: 18px !important;
+  }
+}
+.feedback-medium-font {
+  @include media-breakpoint-down(sm) {
+    font-size: 14px !important;
+  }
+}

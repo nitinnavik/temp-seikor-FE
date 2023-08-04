@@ -1,0 +1,80 @@
+@import "./variables.scss";
+.profile-resume-container {
+}
+
+.upload-resume-content {
+  padding: 20px 24px 0px 24px;
+  border: 1px solid #e5e5e5;
+  border-radius: 9px;
+  .sub-heading {
+    margin: 0 0 7px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #3e3e3e;
+  }
+}
+.upload-resume-wrapper {
+  .upload-resume {
+    cursor: pointer;
+    position: relative;
+    background-color: #f4f7fb;
+    border: 2px dashed #b9b9b9;
+    padding: 20px;
+    border-radius: 8px;
+    height: 106px;
+    margin-bottom: 20px;
+    .label {
+      font-weight: 600;
+      font-weight: 14px;
+    }
+    &:hover {
+      border-color: #7a7a7a;
+    }
+    [role="presentation"] {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-top: 27px;
+    }
+  }
+  .uploaded-resume {
+    position: relative;
+    background-color: #f4f7fb;
+    border: 1px solid #e5e5e5;
+    padding: 20px;
+    border-radius: 8px;
+    height: 106px;
+    margin-bottom: 20px;
+    .file-wrapper {
+      .file-type {
+        padding-right: 10px;
+      }
+      .file-name {
+        color: $secondaryFontColor;
+        font-size: 11px;
+        font-weight: 600;
+      }
+    }
+    .file-actions {
+      position: absolute;
+      z-index: 1;
+      left: 20px;
+      right: 20px;
+      bottom: 15px;
+      .delete {
+        width: 40px;
+        img {
+          cursor: pointer;
+        }
+      }
+      .upload {
+        width: 40px;
+        img {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

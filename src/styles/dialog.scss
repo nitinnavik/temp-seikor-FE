@@ -1,0 +1,40 @@
+.dialog-header {
+  border-bottom: none;
+  padding: 36px 32px 0px 32px;
+}
+
+.dialog-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 119%;
+  color: #1c1c1c;
+}
+
+.dialog-footer {
+  border-top: none;
+  padding: 0px 32px 32px 32px;
+}
+
+.dialog-body {
+  padding: 24px 32px 24px 32px;
+}
+
+.dialog-wrapper {
+  border-radius: 0.5rem !important;
+
+  .dialog-body {
+    height: calc(100vh - 200px) !important;
+    overflow-y: auto;
+  }
+}
+
+.lg-dialog-modal {
+  border-radius: 0.5rem !important;
+  @include media-breakpoint-down(lg) {
+    border-radius: 0px !important;
+  }
+}
+.dialog-footer-checkbox {
+  margin-bottom: 15px;
+  margin-right: auto;
+}

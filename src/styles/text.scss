@@ -1,0 +1,161 @@
+.heading1 {
+  font-weight: 700;
+  font-size: 32px;
+  color: $primaryFontColor;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 20px;
+  color: $secondaryFontColor;
+}
+/* ========== Text Style Start =========*/
+.small-text-gray {
+  font-size: 12px;
+  font-weight: 400;
+  color: #7c7c7c;
+}
+
+.small-text-medium-gray {
+  font-size: 12px;
+  font-weight: 400;
+  color: #b9b9b9;
+}
+
+.small-text-dark-gray {
+  font-size: 12px;
+  font-weight: 500;
+  color: #3e3e3e;
+}
+.small-text-red-bold {
+  font-size: 12px;
+  font-weight: 700;
+  color: #eb1260;
+}
+.medium-text-gray {
+  font-size: 14px;
+  font-weight: 600;
+  color: #b9b9b9;
+}
+.medium-text-dark-gray {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3e3e3e;
+}
+.large-text-gray {
+  font-size: 20px;
+  font-weight: 400px;
+  color: #808080;
+}
+.large-text-black {
+  color: #3a3a3a;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.large-text-dark {
+  color: #1c1c1c;
+  font-weight: 700;
+  font-size: 24px;
+}
+.large-text-dark-gray {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3e3e3e;
+}
+
+.gradient-text {
+  font-size: 32px;
+  background: linear-gradient(109.64deg, #ff7527 20.68%, #f2246e 56.78%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.font-color-black {
+  color: #1c1c1c;
+}
+
+.dark-pink-text {
+  color: #eb1260;
+}
+
+.small-text-black {
+  color: #3a3a3a;
+  font-weight: 400;
+  font-size: 12px;
+}
+.small-green-text {
+  color: #12bd6b;
+}
+/* ========== Text Style End =========*/
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400 !important;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700 !important;
+}
+
+.fs-10 {
+  font-size: 10px !important;
+}
+
+.fs-11 {
+  font-size: 11px !important;
+}
+
+.fs-12 {
+  font-size: 12px !important;
+}
+.fs-14 {
+  font-size: 14px !important;
+}
+.fs-16 {
+  font-size: 16px !important;
+}
+
+.fs-24 {
+  font-size: 24px !important;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+.fs-32 {
+  font-size: 32px !important;
+}
+.fs-64 {
+  font-size: 64px;
+}
+.color-primary {
+  color: $primaryFontColor !important;
+}
+
+.color-secondary {
+  color: $secondaryFontColor;
+}
+
+.color-tertiary {
+  color: $tertiaryFontColor;
+}
+
+.color-primary-blue {
+  color: $primaryBlue;
+}
+.line-height-18 {
+  line-height: 18px !important;
+}

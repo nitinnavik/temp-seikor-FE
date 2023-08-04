@@ -1,0 +1,57 @@
+@mixin transition($animationTime) {
+  -webkit-transition: all $animationTime;
+  -moz-transition: all $animationTime;
+  -o-transition: all $animationTime;
+  transition: all $animationTime;
+}
+@mixin border-radius(
+  $top-left-unit,
+  $top-right-unit,
+  $bottom-right-unit,
+  $bottom-left-unit
+) {
+  -webkit-border-radius: $top-left-unit $top-right-unit $bottom-right-unit
+    $bottom-left-unit;
+  -moz-border-radius: $top-left-unit $top-right-unit $bottom-right-unit
+    $bottom-left-unit;
+  -o-border-radius: $top-left-unit $top-right-unit $bottom-right-unit
+    $bottom-left-unit;
+  border-radius: $top-left-unit $top-right-unit $bottom-right-unit
+    $bottom-left-unit;
+}
+@mixin box-shadow($horizontal, $vertical, $blur, $color) {
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  -moz-box-shadow: $horizontal $vertical $blur $color;
+  box-shadow: $horizontal $vertical $blur $color;
+}
+@mixin placeholder($color: $input-color-placeholder) {
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+}
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(
+    legacy-direction($direction),
+    $color-stops
+  );
+  background: linear-gradient($direction, $color-stops);
+}
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+@mixin sm {
+  // Small devices
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}

@@ -1,0 +1,137 @@
+.ContactOnlineContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.backTitle {
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 10px;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.contactContainer {
+  width: 32%;
+  min-width: min-content;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  @include media-breakpoint-down(lg) {
+    width: 100%;
+  }
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 15px !important;
+  }
+}
+
+.contactImageIcon {
+  margin-left: 62%;
+  margin-top: -55%;
+  width: 25px;
+  padding: 5px;
+  background: white;
+  z-index: 2;
+  border-radius: 20%;
+}
+
+.socialProfile {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  position: relative;
+}
+
+.editlogo {
+  background: #ffffff;
+  cursor: pointer;
+  padding: 7px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.linkedinIcon {
+  font-weight: 400;
+  font-size: 14px;
+  color: #808080;
+}
+
+.profileEditable {
+  display: flex;
+}
+
+.skill-block {
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0px 11px 20px 24px;
+}
+
+.skill-block:last-child {
+  border-bottom: none;
+}
+
+.profileUpdateModadal {
+  position: absolute;
+  width: 365px;
+  height: 73px;
+  right: 0;
+  bottom: -95;
+  display: flex;
+  background: #1c1c1c;
+  border-radius: 8px;
+  color: white;
+}
+.closebutton {
+  width: 29.33px;
+  border: 1px solid;
+  border-radius: 50%;
+  position: absolute;
+  top: 23px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .contactContainer {
+    width: 100%;
+  }
+  .ContactOnlineContainer {
+    display: block;
+  }
+  .profileUpdateModadal {
+    display: none;
+  }
+}
+
+.linkedinInput {
+  background-image: url("../assests/icons/ic_linkedin.svg");
+  background-repeat: no-repeat;
+  padding-left: 29px;
+  background-position: 5px;
+}
+.linkInput {
+  background-image: url("../assests/icons/ic_link.svg");
+  background-repeat: no-repeat;
+  padding-left: 28px;
+  background-position: 5px;
+}
+
+.error-span {
+  color: red;
+  padding-bottom: 3rem;
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: "450px") {
+  .save-btn-responsive {
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
+}

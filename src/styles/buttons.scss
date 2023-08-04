@@ -1,0 +1,164 @@
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+  // font-size: 16px;
+  color: white;
+  font-weight: 700;
+  padding: 14px;
+  border: none;
+  transition: all 300ms;
+  &:focus,
+  &:active {
+    box-shadow: none !important;
+  }
+  &:hover {
+    padding: 13px;
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+}
+.btn-primary:hover {
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+  border: 1px solid #ffffff;
+  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.25);
+}
+
+.outline-none {
+  outline: none;
+}
+
+.outline-icon-button {
+  background: #ffffff;
+  border: 1px solid #1c1c1c;
+  border-radius: 44px;
+  width: fit-content;
+  display: flex;
+  cursor: pointer;
+
+  img {
+    width: 24px;
+    margin-left: 10px;
+  }
+
+  h6 {
+    margin: 12px 10px 11px 6px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333333;
+  }
+}
+
+.back-button {
+  color: #808080;
+  outline: none;
+}
+.btn-black {
+  background: #1c1c1c;
+  border-radius: 8px;
+  padding: 12px 56px;
+  font-weight: 700;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.btn-cancel {
+  border: 1px solid #1c1c1c;
+  font-size: 12px;
+  font-weight: 700;
+  padding-right: 17px;
+  padding-left: 17px;
+  color: black;
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.edit-button {
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  background: #ffffff;
+}
+.btn-save {
+  font-size: 12px;
+  font-weight: 700;
+  padding-right: 17px;
+  padding-left: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  background: black;
+}
+.btn-close {
+  background: transparent url("../assests/icons/cross-icon.svg");
+  background-repeat: no-repeat;
+  border: none !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+  height: 16px;
+  width: 16px;
+}
+.btn-close-dropdown {
+  background-color: none;
+  color: white;
+  border-radius: 50%;
+  margin-right: -1rem;
+
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+// .btn-cancel{
+//   border: 1px solid #1C1C1C;
+//   font-size: 12px;
+//   font-weight: 700;
+//   height: 40px;
+//   width: 96px;
+// }
+.btn-disabled {
+  background-color: #b9b9b9;
+}
+
+.yesNo {
+  display: none;
+}
+
+.yesNo:checked + label {
+  background-color: #1c1c1c !important;
+  color: #b9b9b9;
+}
+
+.myActive:focus {
+  background-color: #1c1c1c !important;
+  color: #ffffff;
+}
+
+.btn-applied-disabled {
+  background-color: #171616 !important;
+  border-radius: 24px;
+  font-size: 12px;
+  font-weight: 400;
+  color: white !important;
+  padding: 0.2rem 1rem;
+}
+.edit-btn-fixed-width {
+  min-width: 40px !important;
+}
+.retract-btn {
+  padding: 10px 17px;
+  background-color: #eb1260;
+  color: white;
+  border-radius: 8px;
+}
+.retract--cancel-btn {
+  padding: 10px 26px;
+  background-color: white;
+  border: 1px solid #1c1c1c;
+  border-radius: 8px;
+}

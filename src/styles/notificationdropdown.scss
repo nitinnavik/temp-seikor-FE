@@ -1,0 +1,42 @@
+.notification-box {
+  max-width: 400px !important;
+  border: 1px solid #808080;
+  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  z-index: 11 !important;
+  position: absolute;
+  top: 40px;
+  right: -40px;
+  @include media-breakpoint-down(sm) {
+    right: -100px !important;
+  }
+  .notification-height {
+    height: 500px;
+    overflow: scroll;
+    @include media-breakpoint-down(xl) {
+      max-width: 350px !important;
+    }
+    @include media-breakpoint-down(sm) {
+      max-width: 280px !important;
+      height: 350px !important;
+      right: -80px !important;
+    }
+  }
+}
+.notification-button {
+  z-index: 12 !important;
+}
+.notification-wrapper {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 10;
+}
+.notification-hide {
+  background: #f8f8f8;
+}
+.inactive {
+  color: #b9b9b9 !important;
+}

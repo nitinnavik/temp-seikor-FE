@@ -1,0 +1,74 @@
+.date-show {
+  background: #a8bde4;
+  padding: 5px 12px;
+  border-radius: 27px;
+  font-weight: 600;
+  font-size: 10px;
+  color: #3e3e3e;
+}
+.left-data {
+  font-weight: 400;
+  font-size: 12px;
+  color: #3e3e3e;
+  width: 80%;
+  text-align: left;
+}
+.right-data {
+  font-weight: 400;
+  font-size: 12px;
+  color: #3e3e3e;
+}
+
+.action-card {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background: transparent;
+  padding: 15px;
+  opacity: 0;
+  @include transition(400ms);
+  .link {
+    a {
+      font-size: 14px;
+      font-weight: 700;
+      color: $primaryFontColor;
+    }
+  }
+}
+
+.card-parent:hover {
+  background: white;
+  border: 3px solid #808080;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.14);
+  border-radius: 8px;
+  @include media-breakpoint-up(lg) {
+    background: #f4f7fb;
+    border: none;
+    box-shadow: none;
+  }
+  .action-card {
+    opacity: 1;
+  }
+}
+
+.back-btn-width {
+  width: 200px !important;
+}
+.send-request-div {
+  @include media-breakpoint-down(sm) {
+    width: 100% !important;
+  }
+}
+.btn-send-payment-request {
+  @include media-breakpoint-down(sm) {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: "350px") {
+  .btn-send-payment-request,
+  .save-btn-div {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}

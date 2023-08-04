@@ -1,0 +1,28 @@
+@media screen and (max-width: "374px") {
+  .welcome-page-footer {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    button {
+      width: 100% !important;
+      margin-top: 12px;
+      padding-left: 70px !important;
+      padding-right: 70px !important;
+    }
+  }
+}
+@media screen and (max-width: "500px") {
+  .welcome-page-medium-font {
+    font-size: 14px !important;
+  }
+  .welcome-page-gradient-text {
+    font-size: 20px !important;
+  }
+  .welcome-page-name-font {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .welcome-page-small-font {
+    font-size: 12px !important;
+  }
+}

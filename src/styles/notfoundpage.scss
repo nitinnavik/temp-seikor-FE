@@ -1,0 +1,39 @@
+.background-404-image {
+  background-image: url("./../assests/images/404page.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  background-position: center;
+}
+
+.non-found-height {
+  height: calc(100vh - 100px) !important;
+  @include media-breakpoint-down(sm) {
+    padding-top: 50px;
+    height: auto !important;
+  }
+}
+.non-found-height-404 {
+  height: calc(100vh - 100px) !important;
+}
+.w-35 {
+  width: 35%;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
+}
+.fs-64 {
+  @include media-breakpoint-down(md) {
+    font-size: 48px;
+  }
+}
+.fs-32 {
+  @include media-breakpoint-down(md) {
+    font-size: 26px !important;
+  }
+}
+
+.down-arrow-logo {
+  background: #f4f7fb url("./../assests/icons/ic-chevron-down-16.svg") no-repeat
+    calc(100% - 10px) center;
+}

@@ -1,0 +1,40 @@
+.background-purple {
+  background: #f4f7fb;
+}
+
+.new-background {
+  background: linear-gradient(154.48deg, #eb1260 13.72%, #ff3d12 83.84%);
+  border-radius: 4px;
+  color: white;
+  font-size: 11px;
+  padding: 0px 10px;
+}
+
+.down-btn-remove {
+  padding: 3.3px 6px;
+  border-radius: 1px;
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+}
+.down-btn-remove:hover {
+  background-color: #f4f7fb;
+}
+@media screen and (max-width: "550px") {
+  .center-aligned-filters {
+    justify-content: start !important;
+  }
+}
+.referral-hover-btn {
+  width: 177px !important;
+  @include media-breakpoint-down(sm) {
+    width: 100% !important;
+  }
+}
+
+.job-card-action-select {
+  .down-btn-remove {
+    height: 25px !important;
+    width: 25px !important;
+  }
+}

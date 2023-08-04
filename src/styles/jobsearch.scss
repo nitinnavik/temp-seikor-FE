@@ -1,0 +1,147 @@
+.progress-bar-first {
+  background: linear-gradient(90.22deg, #fce519 13%, #6ef5ed 98.41%);
+  border-radius: 30px;
+}
+
+.progress-bar-second {
+  background: linear-gradient(270.1deg, #19b8fc 2.24%, #6ef5ed 88.12%);
+  border-radius: 30px;
+}
+.progress-bar-third {
+  background: linear-gradient(89.25deg, #19b8fc 0.65%, #6e8cf5 99.35%);
+  border-radius: 30px;
+}
+.progress-bar-forth {
+  background: linear-gradient(270.56deg, #8429cb -3.39%, #6e8cf5 99.52%);
+  border-radius: 30px;
+}
+.progress-bar-fifth {
+  background: linear-gradient(90.56deg, #8429cb 0.32%, #fc3364 100.52%);
+  border-radius: 30px;
+}
+.progress-bar-blank {
+  background: #f1ebeb;
+
+  border-radius: 24px;
+}
+.progress-bar-color {
+  background: rgb(250, 3, 3);
+}
+
+.searchbox-fixed-width {
+  width: 300px;
+  padding: 12px;
+}
+
+.bg-color-primary {
+  background-color: #1c1c1c;
+}
+
+.add-search-icon {
+  background-image: url("../assests/icons/ic-search-16.svg");
+  background-position: 20px;
+  background-size: 15px;
+}
+
+.job-preference-progressbar-wrapper {
+  left: calc(50% - 400px);
+  right: 0;
+  top: 10px;
+  z-index: 10;
+  position: absolute;
+  max-width: 800px;
+  @include media-breakpoint-down(md) {
+    width: 350px;
+    left: 5%;
+  }
+}
+.job-preference-dialog-close {
+  position: absolute;
+  z-index: 11;
+  right: 10px;
+  top: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.job-preference-dialog-content {
+  // padding-top: 100px;
+}
+
+@media only screen and (max-width: 750px) {
+  .job-preference-first-screen {
+    height: auto !important;
+  }
+}
+.model-gradient-background {
+  background: linear-gradient(291.04deg, #f9fcff 11.26%, #f4f5ff 66.8%);
+}
+
+.job-preferences-full-height {
+  height: calc(100vh - 90px);
+}
+
+.job-preference-btn {
+  width: 300px;
+  @include media-breakpoint-down(md) {
+    width: 180px;
+  }
+}
+.dialog-close-btn {
+  @include media-breakpoint-down(lg) {
+    margin-top: 35px !important;
+  }
+}
+
+.job-preference-dialog-footer {
+  background: transparent !important;
+}
+
+//screens background
+.job-preference-first-screen {
+  background: linear-gradient(109.79deg, #fff9fc 25.07%, #fff7f4 83.56%);
+}
+.job-preference-second-screen {
+  background: linear-gradient(291.04deg, #f9fcff 11.26%, #f4f5ff 66.8%);
+}
+.input-border-black {
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  width: 20%;
+}
+
+.progress .progress-bar {
+  background: linear-gradient(
+    271.91deg,
+    #d80bab 5.92%,
+    #086afd 95.35%
+  ) !important;
+  border-radius: 24px;
+}
+
+.job-preferences-progressbar-white-bg {
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.1);
+  @include media-breakpoint-down(sm) {
+    height: 70px !important;
+  }
+}
+.job-preferences-progressbar-white-bg-referee {
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.second-screen-div {
+  height: 230px;
+  @include media-breakpoint-down(sm) {
+    height: 150px !important;
+  }
+}
+
+@media screen and (max-width: "400px") {
+  .job-search-preferences-progressbars {
+    justify-content: start !important;
+    padding-left: 10px !important;
+  }
+}

@@ -1,0 +1,369 @@
+.sidebar-layout-container {
+  padding: 24px 0;
+}
+.sidebar-wrapper {
+  width: 300px;
+  min-height: 550px;
+  background: linear-gradient(359.55deg, #f5f3ff -0.64%, #e2eaff 93.37%);
+  border-radius: 8px;
+}
+.sidebar {
+  display: block;
+}
+.page-content-wrapper {
+  margin-left: 30px;
+  flex: 1;
+}
+@include media-breakpoint-down(lg) {
+  .sidebar-wrapper {
+    min-height: auto;
+  }
+}
+@include media-breakpoint-down(md) {
+  .sidebar-layout-container {
+    display: block !important;
+    padding: 24px 14px;
+  }
+  .sidebar-wrapper {
+    width: auto;
+  }
+  .page-content-wrapper {
+    margin-left: 0px;
+    flex: 1;
+  }
+}
+
+.profilePic {
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 1px solid hsl(0, 0%, 89%);
+  border-radius: 8px;
+  z-index: -2;
+  margin-left: 5px;
+}
+
+.profileName {
+  padding-top: 15px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.profileImageIcon {
+  right: 2px;
+  bottom: 2px;
+  width: 25px;
+  padding: 5px;
+  background: white;
+  border-radius: 20%;
+  position: absolute;
+  z-index: 2;
+}
+
+.profileImageIcon2 {
+  width: 25px;
+  padding: 5px;
+  background: white;
+  margin-right: 1.4%;
+  border-radius: 20%;
+  margin-bottom: 1.5rem;
+}
+
+.navigation-wrapper {
+  margin-left: 8px;
+  margin-right: 8px;
+  line-height: 2.3;
+}
+
+.sidebar-menu {
+  font-weight: 400;
+  /* width: 90%; */
+  text-decoration: none;
+  position: relative;
+  font-size: 14px;
+  border-radius: 8px;
+  /* line-height: 150%; */
+  /* padding-left: 10px; */
+  /* margin: 4% 2% 4% 7%; */
+  color: #000000;
+  display: block;
+  padding: 7px 15px;
+}
+
+.sidebar-menu {
+  // background: #FFFFFF;
+  // width: 90%;
+  // display: flex;
+  // align-items: center;
+  // padding-left: 10px;
+  // height: 44px;
+  // color: #000000;
+  // border-radius: 4px;
+  // background-repeat: no-repeat;
+  // float: right;
+  // background-image: url("../assests/icons/dropdown.svg");
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+    color: #000000;
+    &::before {
+      position: absolute;
+      content: "";
+      top: 16px;
+      background-repeat: no-repeat;
+      background-image: url("../assests/icons/dropdown.svg");
+      color: transparent;
+      z-index: 1;
+      width: 20px;
+      height: 20px;
+      right: 0;
+    }
+  }
+
+  .floatRight {
+    display: block;
+  }
+}
+
+.floatRight {
+  float: right;
+}
+
+.btn-close {
+  border: 2px solid black;
+  border-radius: 50%;
+  font-size: 8px;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.sidebarShow {
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+  font-size: 14px;
+  border-radius: 8px;
+  color: #000000;
+  display: block;
+  padding: 7px 15px;
+  background-color: #fff;
+  &:hover {
+    color: #000000;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    top: 16px;
+    background-repeat: no-repeat;
+    background-image: url("../assests/icons/dropdown.svg");
+    color: transparent;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    right: 0;
+  }
+}
+
+.whyShouldTextArea {
+  resize: none;
+  width: 100%;
+  height: 180px;
+  border: 1px solid #b9b9b9;
+  border-radius: 4px;
+  padding: 10px 15px;
+  &:focus {
+    outline: none;
+  }
+}
+.textAreaError {
+  resize: none;
+  width: 100%;
+  height: 180px;
+  border: 1px solid #f10b0b;
+  border-radius: 4px;
+  padding: 10px 15px;
+  &:focus {
+    outline: none;
+  }
+}
+.whyShouldTextError {
+  color: #f10b0b;
+  font-size: 12px;
+  text-align: right;
+}
+.whyShouldText {
+  color: #b9b9b9;
+  font-size: 12px;
+  text-align: right;
+  ::placeholder {
+    color: #b9b9b9;
+  }
+}
+
+.profileImageStyle {
+  background: gray;
+  width: 163px;
+  height: 163px;
+  object-fit: contain;
+  border-radius: 16px;
+}
+.imageBackground {
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+}
+.companyImageStyle {
+  object-fit: contain;
+  // height: inherit;
+  color: white;
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+}
+
+.initialsStyle {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.initialsStyle2 {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-weight: 700;
+  font-size: medium;
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+  &-xl {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: x-large;
+  }
+  &-xxl {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: xx-large;
+  }
+  &-xxxl {
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: xxx-large;
+  }
+}
+
+.defaultProfileDiv {
+  height: 163px;
+  width: 163px;
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+  border: 1px solid #e4e4e4;
+  border-radius: 16px;
+}
+
+.header-profile-image-div {
+  height: 32px !important;
+  width: 32px !important;
+}
+
+// .header-default-profile-picture {
+//   background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+//   border: 1px solid #e4e4e4;
+//   border-radius: 6px;
+// }
+
+.header-initials-profile-picture {
+  height: 32px;
+  width: 32px;
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.application-about-me-profile-picture {
+  width: 80px;
+  height: 70px;
+}
+
+.application-about-me-default-div {
+  height: 100%;
+  width: 100%;
+  color: white;
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+  font-weight: 700;
+  font-size: 30px;
+  border-radius: 6px;
+}
+
+.sidebar-default-profile-picture {
+  height: 100%;
+  width: 100%;
+  color: white;
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+.modal-default-profile-picture {
+  height: 100%;
+  width: 100%;
+  color: white;
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+  font-weight: 700;
+  font-size: 54px;
+  border-radius: 10px;
+}
+
+.modal-profile-picture-div {
+  height: 163px;
+  width: 163px;
+  position: relative;
+}
+
+.deleteIconStyle {
+  background-color: white;
+  padding: 5px 8px 7px 8px;
+  border-radius: 20%;
+  z-index: 1;
+  bottom: 0%;
+  right: 0%;
+}
+
+.sidebar-profile-default-pic {
+  width: 100%;
+  height: 100%;
+  color: white;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.sidebar-profile-pic {
+  background: linear-gradient(336deg, #0b44d8 11.62%, #0578ff 77.5%);
+
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  .defaultProfileDiv {
+    width: 68px;
+    height: 68px;
+    border-radius: 0px;
+    .initialsStyle {
+      width: 100%;
+      height: 100%;
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+}

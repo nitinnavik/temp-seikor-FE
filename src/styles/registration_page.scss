@@ -1,0 +1,76 @@
+.registration-page-container {
+  max-width: 1440px;
+  min-height: 800px;
+  background: white;
+}
+
+.registration-page-left-block {
+  background: url("../assests/registration_page_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 70px;
+  @include media-breakpoint-between(md, xl) {
+    padding-right: 80px;
+  }
+}
+
+.registration-page-logo {
+  width: 180px;
+}
+
+.registration-page-right-content-block {
+  padding-top: 20%;
+  @include media-breakpoint-down(lg) {
+    padding-top: 0px;
+  }
+}
+
+.registration-page-right-section {
+  width: 540px;
+}
+
+@include media-breakpoint-down(xl) {
+  .registration-page-right-section {
+    width: 432px;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .registration-page-right-section {
+    width: 100%;
+  }
+}
+
+.forget-password-link {
+  font-weight: 300;
+  font-size: 11px;
+
+  & a {
+    color: $secondaryFontColor;
+  }
+}
+
+.otp-counter {
+  color: $tertiaryFontColor;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.fixed-width {
+  min-width: 100px;
+}
+@media screen and (max-width: "425px") {
+  .contact-number-inputs {
+    flex-direction: column;
+  }
+  .margin-right {
+    margin-right: 0px !important;
+  }
+}
+
+.verify-btn {
+  @include media-breakpoint-down(sm) {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,36 @@
+.recommendation-wrapper {
+  background-color: #f1f1f1;
+  height: 10px;
+  border-radius: 22px !important;
+
+  .progress-bar-blue {
+    background: #3d81ff !important;
+    border-radius: 22px;
+    transition: 3s all;
+    padding: 5px;
+  }
+  .w-33 {
+    width: 33%;
+  }
+  .w-66 {
+    width: 66%;
+  }
+  .w-100 {
+    width: 100%;
+  }
+  .w-0 {
+    width: 0%;
+    padding: 0px;
+  }
+}
+.referee-hover:hover {
+  color: #0a58ca;
+}
+
+.request_payment{
+  color:#EB1260
+}
+
+.processed_payment{
+  color:#12BD6B
+}

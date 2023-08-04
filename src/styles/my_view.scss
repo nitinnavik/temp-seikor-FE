@@ -1,0 +1,468 @@
+.candidate-profile {
+  background-color: $whiteColor;
+  padding: 32px 0;
+}
+.profile-indentification {
+  .profile-pic {
+    width: 48px !important;
+    height: 48px !important;
+    overflow: hidden;
+    @include border-radius(8px, 8px, 8px, 8px);
+    img {
+      width: 100%;
+    }
+  }
+  .profile-name {
+    padding-left: 15px;
+    color: $primaryFontColor;
+    .greeting {
+      color: #2381c0;
+    }
+    .name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
+.candidate-profile-action {
+  .add-skills {
+    a {
+      color: #ff3d12;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+  .edit-profile {
+    padding-left: 15px;
+    .btn {
+      font-size: 12px;
+      font-weight: 700;
+      color: $primaryFontColor;
+      padding: 0.375rem 0.9rem;
+      @include transition(200ms);
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      &:hover {
+        background-color: #f1f1f1;
+      }
+      img {
+        margin-right: 5px;
+      }
+    }
+    .btn-outline-dark {
+      border-color: $primaryFontColor;
+      @include border-radius(8px, 8px, 8px, 8px);
+    }
+    @include media-breakpoint-between(sm, md) {
+      padding-left: 0px;
+    }
+    @include sm {
+      padding-left: 0px;
+    }
+  }
+  .profile-update {
+    padding-left: 24px;
+    .percentage {
+      padding-right: 10px;
+      span {
+        font-size: 14px;
+        font-weight: 700;
+        color: #000000;
+      }
+    }
+    .chart {
+      width: 40px;
+      height: 40px;
+      border: 5px solid #dddddd;
+      @include border-radius(50px, 50px, 50px, 50px);
+    }
+  }
+  @include sm {
+    margin-top: 25px;
+  }
+  @include media-breakpoint-between(sm, md) {
+    padding-top: 25px;
+  }
+}
+
+.main-content {
+  @include border-radius(24px, 24px, 0px, 0px);
+  padding: 32px 0;
+}
+
+.profile-switcher-wrapper {
+  padding-bottom: 43px;
+}
+
+.content-header-wrapper {
+  margin-bottom: 25px;
+}
+.content-header {
+  .icon {
+    width: 32px;
+    img {
+      width: 100%;
+    }
+  }
+  .header {
+    padding-left: 15px;
+    line-height: 20px;
+    h2 {
+      color: $primaryFontColor;
+      font-weight: 700;
+      font-size: 20px;
+      margin: 0;
+      line-height: normal;
+      @include media-breakpoint-down(sm) {
+        font-size: 14px !important;
+      }
+    }
+    h3 {
+      color: $primaryFontColor;
+      font-weight: 700;
+      font-size: 16px;
+      margin: 0;
+      line-height: normal;
+      @include media-breakpoint-down(sm) {
+        font-size: 14px !important;
+      }
+    }
+  }
+  .other-info {
+    padding-bottom: 5px;
+  }
+}
+
+.content-header-action {
+  @include sm {
+    margin-top: 15px;
+    .wired-dark-button .btn.btn-outline-dark {
+      width: 100%;
+    }
+  }
+}
+
+.screen-notification-wrapper {
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+.screen-notification {
+  position: relative;
+  padding: 16px;
+  @include border-radius(8px, 8px, 8px, 8px);
+  &.warning {
+    background-color: #fff8f3;
+    background-image: linear-gradient(90deg, #fff8f3, #fff9e9);
+  }
+  .notification-icon {
+    width: 48px;
+  }
+  .notification-text {
+    flex: 1;
+    color: $secondaryFontColor;
+    font-size: 16px;
+    font-weight: 400;
+    padding-right: 40px;
+    @include sm {
+      padding-right: 0px;
+      margin-top: 12px;
+      font-size: 12px;
+    }
+    a {
+      font-weight: 700;
+      color: $primaryBlue;
+    }
+  }
+  .notification-close {
+    position: absolute;
+    z-index: 1;
+    top: 22px;
+    right: 22px;
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  @include sm {
+    & .d-flex {
+      display: block !important;
+    }
+  }
+}
+
+.overview-referral-wrapper {
+  margin-bottom: 20px;
+  .overview-wrapper {
+    background-color: #f5f3ff;
+    background-image: linear-gradient(180deg, #f5f3ff, #e2eaff);
+    border: 1px solid rgba(152, 174, 241, 0.4);
+    padding: 20px;
+    height: 100%;
+    @include border-radius(8px, 8px, 8px, 8px);
+
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+      color: $primaryFontColor;
+      margin-bottom: 7px;
+    }
+    .counts {
+      color: #000000;
+      font-size: 32px;
+      font-weight: 400;
+      @include media-breakpoint-down(sm) {
+        font-size: 24px;
+      }
+    }
+    .label {
+      color: $secondaryFontColor;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 7px;
+      @include media-breakpoint-down(sm) {
+        font-size: 12px;
+        margin-top: 0px;
+      }
+    }
+    .divider {
+      margin: 0 !important;
+      border: none;
+      border-left: 1px solid #e5e5e5;
+      padding-left: 20px;
+      @include media-breakpoint-down(sm) {
+        border-top: 1px solid #e5e5e5;
+        padding-top: 10px;
+        margin-top: 20px;
+        border-left: 0px;
+        padding-left: 0px;
+      }
+    }
+  }
+  .referral-preferences-wrapper {
+    background-color: #f5f3ff;
+    background-image: linear-gradient(45deg, #f3fff5, #e9fffe);
+    border: 1px solid #b1e3ba;
+    padding: 20px 20px 15px 20px;
+    height: 100%;
+    @include border-radius(8px, 8px, 8px, 8px);
+
+    .title-wrapper {
+      font-size: 16px;
+      font-weight: 700;
+      color: $primaryFontColor;
+      margin-bottom: 7px;
+      .icon {
+        padding-right: 12px;
+      }
+    }
+    .referral-content-wrapper {
+      flex: 1;
+    }
+    .seekbar-wrapper {
+      margin-top: 5px;
+      max-width: 268px;
+      .seekbar {
+        background-color: rgba(56, 56, 56, 0.13);
+        height: 8px;
+        @include border-radius(20px, 20px, 20px, 20px);
+      }
+    }
+    .status {
+      margin-top: 7px;
+      color: #808080;
+      font-size: 12px;
+      font-weight: 400;
+    }
+    .referral-actions {
+      margin-top: 10px;
+      p,
+      button {
+        margin: 0;
+        padding: 0;
+      }
+      .link a {
+        color: #eb1260;
+        font-size: 12px;
+        font-weight: 400;
+        text-decoration: none;
+      }
+      button {
+        margin-left: 15px;
+        background: #ffffff;
+        border: 1px solid #e5e5e5;
+        width: 40px;
+        height: 40px;
+        @include border-radius(8px, 8px, 8px, 8px);
+      }
+    }
+  }
+}
+
+.flex-table {
+  background-color: $whiteColor;
+  padding: 25px;
+  &.border {
+    border: 1px solid #e5e5e5;
+  }
+  &.rounded {
+    @include border-radius(8px, 8px, 8px, 8px);
+  }
+  .row-divider {
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+    }
+  }
+}
+.referral-table {
+  margin-bottom: 40px;
+  .referral-table-left-column {
+    width: 320px;
+  }
+  .referral-table-right-column {
+    flex: 1;
+    .referral-child-row {
+      border-bottom: 1px solid #e5e5e5;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+      }
+    }
+    .referred-to {
+      width: 260px;
+    }
+    .date {
+      width: 105px;
+    }
+    .status {
+      width: 140px;
+    }
+    .your-recommendation {
+      width: 150px;
+      .ratings {
+        width: 60px;
+      }
+      .action {
+        .btn-dark {
+          font-size: 12px;
+          font-weight: 700;
+          padding: 10px 18px;
+          @include border-radius(8px, 8px, 8px, 8px);
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+        }
+        .small-text-gray {
+          font-size: 11px;
+          a {
+            font-weight: 700;
+            color: $primaryBlue;
+          }
+        }
+      }
+    }
+  }
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    color: $primaryFontColor;
+  }
+  .left-space {
+    padding-left: 12px;
+  }
+}
+@include media-breakpoint-down(xl) {
+  .referral-table.flex-table {
+    background-color: transparent;
+    padding: 0;
+    &.border {
+      border: none !important;
+    }
+  }
+  .referral-table-header {
+    display: none !important;
+  }
+  .card-view {
+    flex-direction: column;
+    background-color: $whiteColor;
+    padding: 25px;
+    margin-bottom: 15px !important;
+    border: 1px solid #e5e5e5 !important;
+    @include border-radius(8px, 8px, 8px, 8px);
+  }
+  .referral-table-left-column {
+    margin-bottom: 15px;
+  }
+  .referred-to .left-space {
+    padding-left: 0;
+  }
+  .flex-table .row-divider:last-child {
+    padding-bottom: 25px;
+  }
+}
+@include media-breakpoint-down(md) {
+  .referral-table .referral-table-left-column {
+    width: auto;
+  }
+  .referral-table .referral-table-right-column .referred-to,
+  .referral-table .referral-table-right-column .status,
+  .referral-table .referral-table-right-column .your-recommendation,
+  .referral-table .referral-table-right-column .your-recommendation .ratings {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .referral-table .left-space {
+    padding-left: 0px;
+  }
+  .referral-table .referral-table-right-column .your-recommendation .ratings {
+    display: flex;
+    justify-content: space-between;
+  }
+  .referral-table
+    .referral-table-right-column
+    .your-recommendation
+    .ratings
+    .label {
+    width: 135px;
+  }
+  .referral-table .referral-table-right-column .your-recommendation .action,
+  .referral-table
+    .referral-table-right-column
+    .your-recommendation
+    .action
+    .btn-dark {
+    width: 100%;
+  }
+  .referral-table .referral-table-right-column .your-recommendation .action {
+    margin-bottom: -5px;
+  }
+  .referral-table
+    .referral-table-right-column
+    .your-recommendation
+    .action
+    .small-text-gray {
+    margin-bottom: -10px;
+  }
+}
+@media screen and (max-width: "500px") {
+  .profile-switcher-text {
+    font-size: 12px !important;
+  }
+}
+@media screen and (max-width: "350px") {
+  .no-btn-responsive {
+    margin-top: 10px !important;
+  }
+}

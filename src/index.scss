@@ -1,0 +1,38 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import "./styles/variables.scss";
+@import "./styles/common.scss";
+@import "./styles/styles.scss";
+
+// Common Component Scss
+@import "./styles/text.scss";
+@import "./styles/form.scss";
+@import "./styles/buttons.scss";
+@import "./styles/cards.scss";
+@import "./styles/cursors.scss";
+@import "./styles/badges.scss";
+@import "./styles/profile_pic.scss";
+@import "./styles/otp_input.scss";
+@import "./styles/filterdialog.scss";
+@import "./styles/header.scss";
+@import "./styles/sidebar.scss";
+@import "./styles/notificationdropdown.scss";
+
+// Page Scss
+@import "./styles/login_page.scss";
+@import "./styles/registration_page.scss";
+@import "./styles/my_view.scss";
+@import "./styles/skills_and_experience.scss";
+@import "./styles/jobdetails.scss";
+@import "./styles/aboutme.scss";
+@import "./styles/contact_and_online_presence.scss";
+@import "./styles/education_academics.scss";
+@import "./styles/dialog.scss";
+@import "./styles/toggle_switch.scss";
+@import "./styles/jobsearch.scss";
+@import "./styles/allsavedjobs.scss";
+@import "./styles/feedback.scss";
+@import "./styles/viewmessages.scss";
+@import "./styles/notfoundpage.scss";
+@import "./styles/refereereferral.scss";
+@import "./styles/welcome.scss";

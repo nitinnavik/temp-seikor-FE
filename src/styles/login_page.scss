@@ -1,0 +1,99 @@
+.login-page-container {
+  max-width: 1440px;
+  min-height: 700px;
+  background: white;
+}
+
+.login-page-left-block {
+  background: url("../assests/login_page_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 70px;
+}
+.icons {
+  margin-left: 95%;
+  display: flex;
+  margin-top: -24px;
+  cursor: pointer;
+  @include media-breakpoint-down(sm) {
+    margin-left: 90%;
+  }
+}
+.login-page-logo {
+  width: 180px;
+}
+
+.login-page-content-block {
+  // margin-top: 160px;
+}
+
+.login-page-left-content-block {
+  // margin-left: 70px;
+  max-width: 400px;
+}
+
+.login-page-right-content-block {
+  margin-top: 160px;
+}
+
+.login-page-right-section {
+  width: 540px;
+}
+
+@include media-breakpoint-down(xl) {
+  .login-page-right-section {
+    width: 432px;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .login-page-right-section {
+    width: 100%;
+  }
+  .login-page-right-content-block {
+    margin-top: 0px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .login-page-right-section {
+    // margin: auto;
+    width: calc(100%);
+  }
+  .login-page-container {
+    width: calc(100%);
+  }
+  .login-page-right-content-block {
+    margin-top: 0px;
+  }
+}
+
+.company-logos-container {
+  // position: absolute;
+  // bottom: 80px;
+  // width: 100%;
+}
+
+.company-logo {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 2px;
+  background: #ffffff61;
+  border-radius: 12px;
+}
+
+.forget-password-link {
+  font-weight: 300;
+  font-size: 11px;
+
+  & a {
+    color: $secondaryFontColor;
+  }
+}
+
+.otp-counter {
+  color: $tertiaryFontColor;
+  font-weight: 400;
+  font-size: 14px;
+}
